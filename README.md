@@ -19,4 +19,17 @@ Our enhancements include:
 
 ---
 
-## 📂 Directory Structure
+## Model Architecture
+
+[Input Image]
+     ↓
+[ResNet50 CNN Backbone]
+     ↓
+[Swin Transformer Blocks]
+     ↓
+[Global Pooling]
+     ↓
+[Classification Head (14 Sigmoid outputs)]
+
+
+
