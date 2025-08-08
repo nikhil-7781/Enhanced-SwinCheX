@@ -1,0 +1,31 @@
+# configs/hybrid_swin_cnn.yaml
+OUTPUT: /content/drive/MyDrive
+MODEL:
+  TYPE: hybrid_swin_cnn
+  CNN_BACKBONE: 'resnet50'  # Options: resnet50, efficientnet_b0, etc.
+  NUM_PROTOTYPES: 50
+  DROP_RATE: 0.0
+  DROP_PATH_RATE: 0.1
+  SWIN:
+    EMBED_DIM: 96
+    DEPTHS: [ 2, 2, 6, 2 ]
+    NUM_HEADS: [ 3, 6, 12, 24 ]
+    WINDOW_SIZE: 7
+    MLP_RATIO: 4.0
+    QKV_BIAS: True
+    APE: False
+    PATCH_NORM: True
+    IN_CHANS: 3
+    PATCH_SIZE: 4
+
+TRAIN:
+  EPOCHS: 25
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.05
+  BASE_LR: 5e-4
+  WARMUP_LR: 5e-7
+  MIN_LR: 5e-6
+  XAI:
+    ENABLE_GRADCAM: True
+    ENABLE_PROTOTYPES: True
+    VIS_FREQUENCY: 10  # Epochs between visualizations
